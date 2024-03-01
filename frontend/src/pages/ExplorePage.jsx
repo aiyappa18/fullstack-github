@@ -11,7 +11,7 @@ const ExplorePage = () => {
 		setLoading(true);
 		setRepos([]);
 		try {
-			const res = await fetch("http://localhost:5000/api/explore/repos/" + language);
+			const res = await fetch("/api/explore/repos/" + language);
 			const data = await res.json(); // Await the resolution of the promise
 			const repos = data.repos; // Access the repos property from the resolved JSON data
 			setRepos(repos);
