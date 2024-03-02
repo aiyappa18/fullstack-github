@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Repos from '../components/Repos';
 import Spinner  from '../components/Spinner';
+import toast from 'react-hot-toast';
 
 const ExplorePage = () => {
 	const [loading,setLoading]=useState(false);
@@ -12,12 +13,11 @@ const ExplorePage = () => {
 		setRepos([]);
 		try {
 			const res = await fetch("/api/explore/repos/" + language);
-			const data = await res.json(); // Await the resolution of the promise
-			const repos = data.repos; // Access the repos property from the resolved JSON data
+			const {repos} = await res.json(); // Await the resolution of the promise
+			
 			setRepos(repos);
 			setSelectedLanguage(language);
 
-			setSelectedLanguage(language);
 		} catch (error) {
 			toast.error(error.message);
 		}finally{

@@ -1,6 +1,6 @@
 import { FaGithub, FaUnlockAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-//import { handleLoginWithGithub } from "../lib/function";
+
 
 const SignUpPage = () => {
 	const handleLoginWithGithub=()=>{

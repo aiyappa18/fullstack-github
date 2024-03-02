@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 import { FaHeart } from "react-icons/fa";
+import { formatDate } from '../utils/functions';
 
 const LikesPage = () => {
 	const [likes,setLikes]=useState([]);
@@ -14,7 +15,7 @@ const LikesPage = () => {
 			} catch (error) {
 				toast.error(error.message);
 			}
-		}
+		};
 		getLikes();
 	},[])
 	return (
@@ -37,31 +38,27 @@ const LikesPage = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{likes.map((user,idx)=>(
+				{likes.map((user, idx) => (
 						<tr className='bg-glass border-b' key={user.username}>
-						<td className='w-4 p-4'>
-							<div className='flex items-center'>
-								<span>{idx+1}</span>
-							</div>
-						</td>
-						<th scope='row' className='flex items-center px-6 py-4 whitespace-nowrap '>
-							<img
-								className='w-10 h-10 rounded-full'
-								src={user.avatarUrl}
-								alt='User avatar'
-							/>
-							<div className='ps-3'>
-								<div className='text-base font-semibold'>{user.username}</div>
-							</div>
-						</th>
-						<td className='px-6 py-4'>{formatDate(user.likedDate)}</td>
-						<td className='px-6 py-4'>
-							<div className='flex items-center'>
-								<FaHeart size={22} className='text-red-500 mx-2' />
-								Liked your profile
-							</div>
-						</td>
-					</tr>
+							<td className='w-4 p-4'>
+								<div className='flex items-center'>
+									<span>{idx + 1}</span>
+								</div>
+							</td>
+							<th scope='row' className='flex items-center px-6 py-4 whitespace-nowrap '>
+								<img className='w-10 h-10 rounded-full' src={user.avatarUrl} alt='User Avatar' />
+								<div className='ps-3'>
+									<div className='text-base font-semibold'>{user.username}</div>
+								</div>
+							</th>
+							<td className='px-6 py-4'>{formatDate(user.likedDate)}</td>
+							<td className='px-6 py-4'>
+								<div className='flex items-center'>
+									<FaHeart size={22} className='text-red-500 mx-2' />
+									Liked your profile
+								</div>
+							</td>
+						</tr>
 					))}
 				</tbody>
 			</table>

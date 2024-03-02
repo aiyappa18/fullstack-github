@@ -1,6 +1,6 @@
 export async function ensureAuthenticated(req,res,next)
 {
-    if(req.ensureAuthenticated())
+    if(req.isAuthenticated())
     {
         return next();
     }

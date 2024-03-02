@@ -22,7 +22,7 @@ function App() {
 					<Route path='/explore' element={authUser?<ExplorePage />:<Navigate to={"/"}/>} />
 					<Route path='/likes' element={authUser?<LikesPage />:<Navigate to={"/"}/>} />
 				</Routes>
-        <Toaster />
+                <Toaster />
 			</div>
 		</div>
 	);

@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export const AuthContext =createContext();
@@ -7,7 +7,7 @@ export const useAuthContext =()=>{
     return useContext(AuthContext);
 }
 export const AuthContextProvider=({children})=>{
-    const [user,setUser]=useState(null);
+    const [authUser,setAuthUser]=useState(null);
     const [loading,setLoading]=useState(true);
     useEffect(() => {
         const checkUserLogged=async()=>{
@@ -20,11 +20,14 @@ export const AuthContextProvider=({children})=>{
             } catch (error) {
                 toast.error(error.message);
             }
+            finally{
+                setLoading(false);
+            }
         }
         checkUserLogged();
     },[])
     return(
-    <AuthContext.Provider value={{authUser,setAuthUser}}>
+    <AuthContext.Provider value={{authUser,setAuthUser,loading}}>
         {children}
     </AuthContext.Provider>
 )}

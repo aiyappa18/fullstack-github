@@ -1,6 +1,5 @@
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
-// import { handleLoginWithGithub } from "../lib/function";
 
 const LoginPage = () => {
 	const handleLoginWithGithub=()=>{
