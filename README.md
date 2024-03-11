@@ -1,6 +1,6 @@
 # GitHub Clone App
 
-GitHub Clone App is a full-stack web application built using React, Express, MongoDB, and Passport.js for authentication. Users can view their GitHub repositories, like other users' profiles, sort repositories based on stars and recency, and see who liked their profiles. Additionally, the app features an "Explore" section where users can view the top 10 repositories for each programming language on GitHub.
+GitHub Clone App is a full-stack web application built using React, Express, MongoDB, and Passport.js for authentication. Users can view their GitHub repositories, like other users' profiles, sort repositories based on stars and recency, and see who liked their profiles. Additionally, the app features an "Explore" section where users can view the top 10 repositories for programming languages like Javascript, Typescript,C++,Csharp,Java on GitHub.
 
 ## Technologies Used
 
